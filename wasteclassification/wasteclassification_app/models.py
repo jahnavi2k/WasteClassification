@@ -2,9 +2,9 @@ from django.db import models
 import os
 
 def path_and_rename(instance, filename):
-    upload_to = 'media'
+    upload_to = ''
     ext = filename.split('.')[-1]
-    filename = "specimen" + ext
+    filename = "specimen." + ext
     # return the whole path to the file
     return os.path.join(upload_to, filename)
 

@@ -1,0 +1,240 @@
+item {
+  name: "Aluminium foil: metals and plastics"
+  id: 1
+}
+item {
+  name: "Battery: other"
+  id: 2
+}
+item {
+  name: "Aluminium blister pack: non-recyclable"
+  id: 3
+}
+item {
+  name: "Carded blister pack: non-recyclable"
+  id: 4
+}
+item {
+  name: "Other plastic bottle: metals and plastics"
+  id: 5
+}
+item {
+  name: "Clear plastic bottle: metals and plastics"
+  id: 6
+}
+item {
+  name: "Glass bottle: glass"
+  id: 7
+}
+item {
+  name: "Plastic bottle cap: metals and plastics"
+  id: 8
+}
+item {
+  name: "Metal bottle cap: metals and plastics"
+  id: 9
+}
+item {
+  name: "Broken glass: glass"
+  id: 10
+}
+item {
+  name: "Food Can: metals and plastics"
+  id: 11
+}
+item {
+  name: "Aerosol: metals and plastics"
+  id: 12
+}
+item {
+  name: "Drink can: metals and plastics"
+  id: 13
+}
+item {
+  name: "Toilet tube: paper"
+  id: 14
+}
+item {
+  name: "Other carton: paper"
+  id: 15
+}
+item {
+  name: "Egg carton: paper"
+  id: 16
+}
+item {
+  name: "Drink carton: metals and plastics"
+  id: 17
+}
+item {
+  name: "Corrugated carton: paper"
+  id: 18
+}
+item {
+  name: "Meal carton: non-recyclable"
+  id: 19
+}
+item {
+  name: "Pizza box: non-recyclable"
+  id: 20
+}
+item {
+  name: "Paper cup: non-recyclable"
+  id: 21
+}
+item {
+  name: "Disposable plastic cup: metals and plastics"
+  id: 22
+}
+item {
+  name: "Foam cup: non-recyclable"
+  id: 23
+}
+item {
+  name: "Glass cup: non-recyclable"
+  id: 24
+}
+item {
+  name: "Other plastic cup: metals and plastics"
+  id: 25
+}
+item {
+  name: "Food waste: bio"
+  id: 26
+}
+item {
+  name: "Glass jar: glass"
+  id: 27
+}
+item {
+  name: "Plastic lid: metals and plastics"
+  id: 28
+}
+item {
+  name: "Metal lid: metals and plastics"
+  id: 29
+}
+item {
+  name: "Other plastic: metals and plastics"
+  id: 30
+}
+item {
+  name: "Magazine paper: non-recyclable"
+  id: 31
+}
+item {
+  name: "Tissues: non-recyclable"
+  id: 32
+}
+item {
+  name: "Wrapping paper: non-recyclable"
+  id: 33
+}
+item {
+  name: "Normal paper: paper"
+  id: 34
+}
+item {
+  name: "Paper bag: paper"
+  id: 35
+}
+item {
+  name: "Plastified paper bag: non-recyclable"
+  id: 36
+}
+item {
+  name: "Plastic film: metals and plastics"
+  id: 37
+}
+item {
+  name: "Six pack rings: metals and plastics"
+  id: 38
+}
+item {
+  name: "Garbage bag: non-recyclable"
+  id: 39
+}
+item {
+  name: "Other plastic wrapper: non-recyclable"
+  id: 40
+}
+item {
+  name: "Single-use carrier bag: metals and plastics"
+  id: 41
+}
+item {
+  name: "Polypropylene bag: metals and plastics"
+  id: 42
+}
+item {
+  name: "Crisp packet: non-recyclable"
+  id: 43
+}
+item {
+  name: "Spread tub: metals and plastics"
+  id: 44
+}
+item {
+  name: "Tupperware: metals and plastics"
+  id: 45
+}
+item {
+  name: "Disposable food container: metals and plastics"
+  id: 46
+}
+item {
+  name: "Foam food container: non-recyclable"
+  id: 47
+}
+item {
+  name: "Other plastic container: metals and plastics"
+  id: 48
+}
+item {
+  name: "Plastic glooves: metals and plastics"
+  id: 49
+}
+item {
+  name: "Plastic utensils: metals and plastics"
+  id: 50
+}
+item {
+  name: "Pop tab: metals and plastics"
+  id: 51
+}
+item {
+  name: "Rope & strings: non-recyclable"
+  id: 52
+}
+item {
+  name: "Scrap metal: metals and plastics"
+  id: 53
+}
+item {
+  name: "Shoe: non-recyclable"
+  id: 54
+}
+item {
+  name: "Squeezable tube: non-recyclable"
+  id: 55
+}
+item {
+  name: "Plastic straw: metals and plastics"
+  id: 56
+}
+item {
+  name: "Paper straw: non-recyclable"
+  id: 57
+}
+item {
+  name: "Styrofoam piece: non-recyclable"
+  id: 58
+}
+item {
+  name: "Unlabeled litter: Unknown"
+  id: 59
+}
+item {
+  name: "Cigarette: non-recyclable"
+  id: 60
+}
