@@ -19,3 +19,7 @@ Waste management is aimed at protection of the environment and to enhance the sa
 This is an attempt to classify the type of waste to aid its proper disposal using Tensorflow. 
 
 Our flutter app captures an image of trash and uploads it to our Django backend where it is processed using Tensorflow and its type is predicted.
+
+![alt text](https://drive.google.com/file/d/1fKfPWLAQzKYq6hNmF8eSJJM3qDKRcGKq/view?usp=drivesdk)
+
+![alt text](https://drive.google.com/file/d/1fQHQ79XM7OXsieuzR8Xat-FBOs9lbQ-H/view?usp=drivesdk)
