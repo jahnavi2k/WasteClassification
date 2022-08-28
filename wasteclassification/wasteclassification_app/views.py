@@ -11,7 +11,6 @@ class FileView(APIView):
   parser_classes = (MultiPartParser, FormParser)
   #permission_classes = (permissions.AllowAny,) 
   def post(self, request, *args, **kwargs):
-
     file_serializer = FileSerializer(data=request.data)
     if file_serializer.is_valid():
       file_serializer.save()

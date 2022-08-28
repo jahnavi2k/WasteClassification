@@ -57,7 +57,7 @@ def detect(detection_graph, test_image_path, category_index):
                 [detection_boxes, detection_scores, detection_classes, num_detections],
                 feed_dict={image_tensor: image2tensor(image)}
             )
-            
+            # print(boxes, scores, classes, num, category_index)
             npim = image2np(image)
             vis_util.visualize_boxes_and_labels_on_image_array(npim,
                 np.squeeze(boxes),
