@@ -1,6 +1,8 @@
 import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   runApp(MyApp());
@@ -92,6 +94,13 @@ class _HomeState extends State<Home> {
                   icon: Icon(Icons.camera),
                   label: Text("Capture"),
                 ),
+                ElevatedButton.icon( //image upload button
+                  onPressed: () {
+                      uploadImage('image', File('assets/testimage.png'));
+                    },
+                  icon: Icon(Icons.upload),
+                  label: Text("Upload")
+                ),
 
                 Container( //show captured image
                   padding: EdgeInsets.all(30),
@@ -106,4 +115,17 @@ class _HomeState extends State<Home> {
 
     );
   }
+}
+uploadImage(String title, File file) async{
+
+  var request = http.MultipartRequest("POST",Uri.parse("https://api.imgur.com/3/image"));
+  request.fields['title'] = "dummyImage";
+  request.headers['Authorization'] = "Client-ID " +"f7........";
+  var picture = http.MultipartFile.fromBytes('image', (await rootBundle.load('assets/testimage.png')).buffer.asUint8List(),
+      filename: 'testimage.png');
+  request.files.add(picture);
+  var response = await request.send();
+  var responseData = await response.stream.toBytes();
+  var result = String.fromCharCodes(responseData);
+  print(result);
 }

@@ -31,9 +31,13 @@ dependencies:
   camera:
   path_provider:
   path:
+  http:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+#  assets:
+#    - assets/testimage.png
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
