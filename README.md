@@ -1,5 +1,7 @@
 # waste_detection
 
+This is an attempt to classify the type of waste to aid its proper disposal using Tensorflow. 
+
 A new Flutter project.
 
 ## Getting Started
