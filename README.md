@@ -20,6 +20,9 @@ This is an attempt to classify the type of waste to aid its proper disposal usin
 
 Our flutter app captures an image of trash and uploads it to our Django backend where it is processed using Tensorflow and its type is predicted.
 
+## Motivation behind the project:
+A lot of people still can't classify between the different types of waste which doesn't allow them to segregate them properly. Our app helps to easily classify trash for proper disposal. Moving forward, we plan to make extend our app for use by blind people, using audio output, so that they also can segregate waste properly. This will ensure a sustainable future for the coming generations.
+
 ![This is an image](https://github.com/jahnavi2k/WasteClassification/blob/master/IMG_20220828_131543.jpg)
 ![This is an image](https://github.com/jahnavi2k/WasteClassification/blob/master/IMG_20220828_131606.jpg)
 
