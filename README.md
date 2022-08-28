@@ -20,6 +20,6 @@ This is an attempt to classify the type of waste to aid its proper disposal usin
 
 Our flutter app captures an image of trash and uploads it to our Django backend where it is processed using Tensorflow and its type is predicted.
 
-![alt text](https://drive.google.com/file/d/1fKfPWLAQzKYq6hNmF8eSJJM3qDKRcGKq/view?usp=drivesdk)
+!{https://github.com/jahnavi2k/WasteClassification/blob/master/IMG_20220828_131543.jpg}
+!{https://github.com/jahnavi2k/WasteClassification/blob/master/IMG_20220828_131606.jpg}
 
-![alt text](https://drive.google.com/file/d/1fQHQ79XM7OXsieuzR8Xat-FBOs9lbQ-H/view?usp=drivesdk)
