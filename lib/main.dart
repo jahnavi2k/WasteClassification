@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:camera/camera.dart';
 import 'dart:convert' as convert;
-import 'dart:convert' show json, utf8;
+import 'dart:convert' show json, utf8, base64, base64Decode;
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -34,6 +34,8 @@ class _HomeState extends State<Home> {
   List<CameraDescription>? cameras; //list out the camera available
   CameraController? controller; //controller for camera
   XFile? image; //for captured image
+  bool isThere = false;
+  var decode;
 
   @override
   void initState() {
@@ -65,78 +67,97 @@ class _HomeState extends State<Home> {
         title: Text("Capture Image from Camera"),
         backgroundColor: Colors.redAccent,
       ),
-      body: Container(
-          child: Column(children: [
-        Container(
-            height: 300,
-            width: 400,
-            child: controller == null
-                ? Center(child: Text("Loading Camera..."))
-                : !controller!.value.isInitialized
-                    ? Center(
-                        child: CircularProgressIndicator(),
-                      )
-                    : CameraPreview(controller!)),
-        ElevatedButton.icon(
-          //image capture button
-          onPressed: () async {
-            try {
-              if (controller != null) {
-                //check if controller is not null
-                if (controller!.value.isInitialized) {
-                  //check if controller is initialized
-                  image = await controller!.takePicture(); //capture image
-                  print("hello");
-                  print(Image.file(new File(image!.path)));
-                  setState(() {
-                    //update UI
-                  });
+      body: SingleChildScrollView(
+        child: Container(
+            child: Column(children: [
+          Container(
+              height: 300,
+              width: 400,
+              child: controller == null
+                  ? Center(child: Text("Loading Camera..."))
+                  : !controller!.value.isInitialized
+                      ? Center(
+                          child: CircularProgressIndicator(),
+                        )
+                      : CameraPreview(controller!)),
+          ElevatedButton.icon(
+            //image capture button
+            onPressed: () async {
+              try {
+                if (controller != null) {
+                  //check if controller is not null
+                  if (controller!.value.isInitialized) {
+                    //check if controller is initialized
+                    image = await controller!.takePicture(); //capture image
+                    print("hello");
+                    print(Image.file(new File(image!.path)));
+                    setState(() {
+                      //update UI
+                    });
+                  }
                 }
+              } catch (e) {
+                print(e); //show error
               }
-            } catch (e) {
-              print(e); //show error
-            }
-          },
-          icon: Icon(Icons.camera),
-          label: Text("Capture"),
-        ),
-        ElevatedButton.icon(
-            //image upload button
-            onPressed: () {
-              uploadImage('image', File(image!.path));
             },
-            icon: Icon(Icons.upload),
-            label: Text("Upload")),
-        Container(
-          //show captured image
-          padding: EdgeInsets.all(30),
-          child: image == null
-              ? Text("No image captured")
-              : Image.file(
-                  File(image!.path),
-                  height: 100,
-                ),
-          //display captured image
-        )
-      ])),
+            icon: Icon(Icons.camera),
+            label: Text("Capture"),
+          ),
+          ElevatedButton.icon(
+              //image upload button
+              onPressed: () async {
+                var temp = await uploadImage('image', File(image!.path));
+                print(temp);
+                setState(() {
+                  isThere = true;
+                  decode = temp;
+                  print("hiiii");
+                });
+              },
+              icon: Icon(Icons.upload),
+              label: Text("Upload")),
+          Container(
+            //show captured image
+            padding: EdgeInsets.all(30),
+            child: image == null
+                ? Text("No image captured")
+                : Image.file(
+                    File(image!.path),
+                    height: 100,
+                  ),
+            //display captured image
+          ),
+          Container(
+            //show captured image
+            padding: EdgeInsets.all(30),
+            child: isThere == false ? Text("No image") : Image.memory(decode),
+            //display captured image
+          )
+        ])),
+      ),
     );
   }
 }
 
-uploadImage(String title, File file) async {
+Future uploadImage(String title, File file) async {
   var request = http.MultipartRequest(
       "POST", Uri.parse("http://10.0.2.2:8000/file/upload/"));
   request.fields['remark'] = "dummyImage";
-  Client client = http.Client();
+  // Client client = http.Client();
 
   var picture = http.MultipartFile.fromBytes('photo', file.readAsBytesSync(),
       filename: 'testimage.png');
   request.files.add(picture);
   var response = await request.send();
-
-  // var response1 = json.decode(
-  //     (await client.post(Uri.parse("http://10.0.2.2:8000/file/upload/"))).body);
-
+  //print(response.stream.bytesToString());
+  var response1 = json.decode((await http.Response.fromStream(response)).body);
+  //var response1 = json.decode(await response.stream.bytesToString());
+  var decoded = base64.decode(response1['img']);
+  var img = Image.memory(base64Decode(response1['img']));
+  print(decoded);
+  print(response1);
+  print(img);
+  return decoded;
   // if (response.statusCode == 200) {
   //   // String path = (await getExternalStorageDirectory()).path;
   //   File image = File('assets/specimen.jpg');
@@ -149,8 +170,8 @@ uploadImage(String title, File file) async {
   // print(response1);
   // List<dynamic> list = convert.jsonDecode(response1.body);
   // print(list);
-  var responseData = await response.stream.toBytes();
-  var result = String.fromCharCodes(responseData);
-  print(result);
+  //var responseData = await response1.stream.toBytes();
+  // var result = String.fromCharCodes(responseData);
+  //print(result);
   // print("hi");
 }

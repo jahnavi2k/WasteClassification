@@ -9,7 +9,7 @@ def path_and_rename(instance, filename):
     return os.path.join(upload_to, filename)
 
 
-class File(models.Model):
+class Filee(models.Model):
   photo = models.ImageField(upload_to=path_and_rename)
   remark = models.CharField(max_length=20)
   timestamp = models.DateTimeField(auto_now_add=True)

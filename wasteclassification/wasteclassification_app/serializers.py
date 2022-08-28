@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from .models import File
+from .models import Filee
 
 class FileSerializer(serializers.ModelSerializer):
   class Meta():
-    model = File
+    model = Filee
     fields = ('photo', 'remark', 'timestamp')
